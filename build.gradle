@@ -47,6 +47,8 @@ intellij {
     pluginName 'Jpa Support'
     type 'IU'
     updateSinceUntilBuild false
+    plugins = ['DatabaseTools']
+
 }
 
 patchPluginXml {
@@ -57,4 +59,9 @@ patchPluginXml {
       Feature: The window will be closed automatically after generating the source code
       Fix bug: Fix sometimes the error of overwriting source code
       """
+}
+
+compileJava.options.encoding = 'UTF-8'
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
 }

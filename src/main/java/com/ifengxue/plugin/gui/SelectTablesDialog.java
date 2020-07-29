@@ -432,7 +432,7 @@ public class SelectTablesDialog extends DialogWrapper {
     private void writeContent(Project project, String filename, String parentPath, String packageName,
         String sourceCode) {
       String directory = Paths.get(parentPath, StringHelper.packageNameToFolder(packageName)).toAbsolutePath()
-          .toString();
+          .toString().replace("\\","/");
       PsiDirectory psiDirectory = DirectoryUtil.mkdirs(PsiManager.getInstance(project), directory);
       PsiFile psiFile = psiDirectory.findFile(filename);
       if (psiFile != null) {
